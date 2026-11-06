@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: "Space Grotesk", "DM Serif Display", Georgia, serif;
+  --font-sans: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  
+  --color-violet-primary: #8b5cf6;
+  --color-violet-glow: #a78bfa;
+  --color-violet-dark: #6d28d9;
+
+  --color-coral-primary: #ff6b4a;
+  --color-coral-glow: #ff8566;
+  --color-coral-dark: #ea580c;
+
+  --color-obsidian: #090714;
+  --color-obsidian-card: #120e24;
+  --color-obsidian-border: #231b40;
+  
+  --color-night-bg: #090714;
+  --color-night-card: #120e24;
+  --color-night-border: #231b40;
+  --color-night-text: #ffffff;
+  --color-night-muted: #a1a1aa;
+}
+
+body {
+  background-color: #090714;
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+.dark body {
+  background-color: #090714;
+  color: #ffffff;
+}
+
+/* Custom Violet and Coral Glow Utilities */
+.glow-violet {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.35);
+}
+
+.glow-coral {
+  box-shadow: 0 0 30px rgba(255, 107, 74, 0.35);
+}
+
+.border-glow-violet {
+  border-color: rgba(139, 92, 246, 0.7);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.3);
+}
+
+.border-glow-coral {
+  border-color: rgba(255, 107, 74, 0.7);
+  box-shadow: 0 0 25px rgba(255, 107, 74, 0.3);
+}
+
+/* Glassmorphism Classes */
+.glass-obsidian {
+  background: rgba(18, 14, 36, 0.75);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-pill {
+  background: rgba(21, 16, 42, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Filmstrip custom sprocket */
+.film-perforations {
+  background-image: linear-gradient(90deg, #8b5cf6 0 8px, transparent 8px 17px);
+  background-size: 17px 6px;
+}
+.dark .film-perforations {
+  background-image: linear-gradient(90deg, #ff6b4a 0 8px, transparent 8px 17px);
+  background-size: 17px 6px;
+}
+
+/* Radar Sweep Animation */
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-radar-sweep {
+  animation: radar-sweep 6s linear infinite;
+  transform-origin: center center;
+}
+
+/* Sonar Pulse Ring */
+@keyframes sonar-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.animate-sonar {
+  animation: sonar-pulse 3s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Gradient text shimmer */
+@keyframes text-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-shimmer {
+  background-size: 200% 200%;
+  animation: text-shimmer 4s ease infinite;
+}
+
+/* Floating element drift */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090714;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a204d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6;
+}
